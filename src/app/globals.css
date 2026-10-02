@@ -1,0 +1,221 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground: #0f172a;
+  --background: #f8fafc;
+}
+
+html.dark {
+  --foreground: #e2e8f0;
+  --background: #0f172a;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Inter, system-ui, -apple-system, sans-serif;
+  overflow-x: hidden;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* Dark mode surface overrides */
+html.dark body {
+  background: #0f172a;
+  color: #e2e8f0;
+}
+html.dark .bg-white {
+  background-color: #1e293b !important;
+}
+html.dark .bg-slate-50,
+html.dark .hover\:bg-slate-50:hover {
+  background-color: #1e293b !important;
+}
+html.dark .border-slate-200,
+html.dark .border-slate-100 {
+  border-color: #334155 !important;
+}
+html.dark .text-slate-800,
+html.dark .text-slate-900 {
+  color: #f1f5f9 !important;
+}
+html.dark .text-slate-700 {
+  color: #e2e8f0 !important;
+}
+html.dark .text-slate-600,
+html.dark .text-slate-500 {
+  color: #94a3b8 !important;
+}
+html.dark input,
+html.dark select,
+html.dark textarea {
+  background-color: #0f172a;
+  border-color: #475569;
+  color: #e2e8f0;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* ========== PRINT ========== */
+@media print {
+  @page {
+    size: A4 landscape;
+    margin: 8mm 10mm;
+  }
+
+  html,
+  body {
+    background: #fff !important;
+    color: #0f172a !important;
+    height: auto !important;
+    overflow: visible !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    font-size: 11px !important;
+  }
+
+  /* Hide app chrome */
+  aside,
+  header,
+  nav,
+  .print\:hidden,
+  [class*="print:hidden"] {
+    display: none !important;
+  }
+
+  /* Help / floating widgets if any */
+  fixed,
+  .fixed {
+    display: none !important;
+  }
+
+  .pl-64 {
+    padding-left: 0 !important;
+  }
+
+  main {
+    padding: 0 !important;
+    margin: 0 !important;
+    overflow: visible !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .min-h-screen {
+    min-height: 0 !important;
+  }
+
+  a {
+    text-decoration: none !important;
+    color: inherit !important;
+  }
+
+  /* Cards */
+  .rounded-xl,
+  .rounded-lg,
+  .rounded-2xl {
+    border-radius: 4px !important;
+    box-shadow: none !important;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .shadow-sm,
+  .shadow,
+  .shadow-lg {
+    box-shadow: none !important;
+  }
+
+  /* Tables must show fully */
+  .overflow-x-auto,
+  .overflow-hidden {
+    overflow: visible !important;
+  }
+
+  table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+    table-layout: auto !important;
+    font-size: 10px !important;
+  }
+
+  th,
+  td {
+    border: 1px solid #cbd5e1 !important;
+    padding: 4px 6px !important;
+    color: #0f172a !important;
+    background: transparent !important;
+  }
+
+  thead th {
+    background: #f1f5f9 !important;
+    font-weight: 600 !important;
+  }
+
+  /* Keep tinted total rows readable */
+  tr.bg-blue-50\/60 td,
+  .bg-blue-50\/60 td,
+  .bg-blue-50\/70 th {
+    background: #eff6ff !important;
+  }
+
+  .bg-amber-50 {
+    background: #fffbeb !important;
+    border: 1px solid #fcd34d !important;
+  }
+
+  .bg-slate-50\/80,
+  .bg-slate-50 {
+    background: #f8fafc !important;
+  }
+
+  .text-blue-600,
+  .text-blue-700 {
+    color: #1d4ed8 !important;
+  }
+
+  .border,
+  .border-slate-200,
+  .border-slate-100 {
+    border-color: #cbd5e1 !important;
+  }
+
+  /* Spacing tighter for print */
+  .space-y-5 > :not([hidden]) ~ :not([hidden]) {
+    margin-top: 10px !important;
+  }
+
+  .pb-8 {
+    padding-bottom: 0 !important;
+  }
+
+  h1 {
+    font-size: 16px !important;
+  }
+
+  h2 {
+    font-size: 12px !important;
+  }
+}
