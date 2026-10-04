@@ -354,7 +354,7 @@ export default function DashboardPage() {
 
       {/* Row 2 */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-3">
-        <div className="rounded-xl border border-slate-200 bg-white shadow-sm overflow-hidden">
+        <div className="rounded-xl border border-slate-200 bg-white shadow-sm overflow-hidden overflow-x-auto">
           <div className="px-4 py-3 border-b border-slate-100 flex items-center justify-between bg-slate-50/80">
             <h3 className="text-xs font-semibold tracking-wide text-slate-600">
               SCRAP % BY PLAN
@@ -427,7 +427,7 @@ export default function DashboardPage() {
           </div>
         </div>
 
-        <div className="rounded-xl border border-slate-200 bg-white shadow-sm overflow-hidden">
+        <div className="rounded-xl border border-slate-200 bg-white shadow-sm overflow-hidden overflow-x-auto">
           <div className="px-4 py-3 border-b border-slate-100 bg-slate-50/80">
             <h3 className="text-xs font-semibold tracking-wide text-slate-600">
               SCRAP % BY PRODUCT
@@ -470,7 +470,7 @@ export default function DashboardPage() {
           </div>
         </div>
 
-        <div className="rounded-xl border border-slate-200 bg-white shadow-sm overflow-hidden">
+        <div className="rounded-xl border border-slate-200 bg-white shadow-sm overflow-hidden overflow-x-auto">
           <div className="px-4 py-3 border-b border-slate-100 flex items-center justify-between bg-slate-50/80">
             <h3 className="text-xs font-semibold tracking-wide text-slate-600">
               PLAN STATUS SUMMARY
@@ -580,7 +580,7 @@ export default function DashboardPage() {
           </p>
         </div>
 
-        <div className="rounded-xl border border-slate-200 bg-white shadow-sm overflow-hidden">
+        <div className="rounded-xl border border-slate-200 bg-white shadow-sm overflow-hidden overflow-x-auto">
           <div className="px-4 py-3 border-b border-slate-100 bg-slate-50/80">
             <h3 className="text-xs font-semibold tracking-wide text-slate-600">
               TOP 5 PLANS BY SCRAP %

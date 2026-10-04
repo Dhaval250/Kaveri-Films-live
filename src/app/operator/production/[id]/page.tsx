@@ -120,7 +120,7 @@ export default function EnterProductionPage() {
 
   return (
     <div className="w-full space-y-6">
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
         <h1 className="text-2xl font-bold text-slate-800">
           Enter Production Details
         </h1>
@@ -201,7 +201,7 @@ export default function EnterProductionPage() {
 
       {/* Party / Client Allocation */}
       {parties.length > 0 && (
-        <div className="bg-white rounded-xl border overflow-hidden">
+        <div className="bg-white rounded-xl border overflow-hidden overflow-x-auto">
           <div className="px-5 py-3 border-b font-medium">Party Allocation (Client Data)</div>
           <div className="overflow-x-auto">
             <table className="w-full text-sm">
@@ -441,7 +441,7 @@ export default function EnterProductionPage() {
       </div>
 
       {records.length > 0 && (
-        <div className="bg-white rounded-xl border overflow-hidden">
+        <div className="bg-white rounded-xl border overflow-hidden overflow-x-auto">
           <div className="px-5 py-3 border-b font-medium">My Submitted Records</div>
           <table className="w-full text-sm">
             <thead className="bg-slate-800 text-white">

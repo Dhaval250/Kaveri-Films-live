@@ -345,7 +345,7 @@ export default function ReportsPage() {
         </div>
       )}
 
-      <div className="bg-white rounded-xl border overflow-hidden">
+      <div className="bg-white rounded-xl border overflow-hidden overflow-x-auto">
         <div className="overflow-x-auto">
           {tab === "overview" && (
             <table className="w-full text-sm">

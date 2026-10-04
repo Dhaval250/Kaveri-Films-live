@@ -250,7 +250,7 @@ export default function AssignPage() {
       </div>
 
       {/* Planning Details — horizontal like reference */}
-      <div className="bg-white rounded-xl border border-slate-200 overflow-hidden shadow-sm">
+      <div className="bg-white rounded-xl border border-slate-200 overflow-hidden shadow-sm overflow-x-auto">
         <div className="flex items-center justify-between px-5 py-3 border-b border-slate-100 bg-slate-50/80">
           <h2 className="text-sm font-semibold text-blue-700">Planning Details</h2>
           <span className="text-sm text-slate-500">
@@ -305,7 +305,7 @@ export default function AssignPage() {
       </div>
 
       {/* Client / Party Allocation — product rowspan style */}
-      <div className="bg-white rounded-xl border border-slate-200 overflow-hidden shadow-sm">
+      <div className="bg-white rounded-xl border border-slate-200 overflow-hidden shadow-sm overflow-x-auto">
         <div className="px-5 py-3 border-b border-slate-100 bg-slate-50/80">
           <h2 className="text-sm font-semibold text-blue-700">Client / Party Allocation</h2>
         </div>
@@ -593,7 +593,7 @@ export default function AssignPage() {
               Cancel
             </Link>
             <div className="relative">
-              <div className="flex rounded-lg overflow-hidden shadow-sm">
+              <div className="flex rounded-lg overflow-hidden shadow-sm overflow-x-auto">
                 <button
                   onClick={() => submitAssign(submitStatus)}
                   disabled={saving || mastersEmpty}
@@ -662,7 +662,7 @@ export default function AssignPage() {
 
       {/* Current Assignments (always show if any) */}
       {assignments.length > 0 && (
-        <div className="bg-white rounded-xl border overflow-hidden">
+        <div className="bg-white rounded-xl border overflow-hidden overflow-x-auto">
           <div className="px-5 py-3 border-b font-medium">
             Current Assignments ({assignments.length})
           </div>
@@ -700,7 +700,7 @@ export default function AssignPage() {
       )}
 
       {/* Production Summary — detailed like reference */}
-      <div className="bg-white rounded-xl border border-slate-200 overflow-hidden shadow-sm">
+      <div className="bg-white rounded-xl border border-slate-200 overflow-hidden shadow-sm overflow-x-auto">
         <div className="px-5 py-4 border-b border-slate-100 flex flex-wrap items-center justify-between gap-2">
           <div>
             <h2 className="text-lg font-semibold text-slate-800">Production Summary</h2>
@@ -746,7 +746,7 @@ export default function AssignPage() {
         ) : (
           <div className="p-5 space-y-5">
             {/* Machine & Shift Details */}
-            <div className="rounded-xl border border-slate-200 overflow-hidden">
+            <div className="rounded-xl border border-slate-200 overflow-hidden overflow-x-auto">
               <div className="px-4 py-2.5 bg-blue-50/80 border-b border-slate-100">
                 <h3 className="text-sm font-semibold text-slate-800">
                   Machine &amp; Shift Details
@@ -795,7 +795,7 @@ export default function AssignPage() {
             </div>
 
             {/* Party-wise Production Details */}
-            <div className="rounded-xl border border-slate-200 overflow-hidden">
+            <div className="rounded-xl border border-slate-200 overflow-hidden overflow-x-auto">
               <div className="px-4 py-2.5 bg-blue-50/80 border-b border-slate-100">
                 <h3 className="text-sm font-semibold text-slate-800">
                   Party-wise Production Details
@@ -907,7 +907,7 @@ export default function AssignPage() {
             </div>
 
             {/* Summary & Calculation */}
-            <div className="rounded-xl border border-emerald-200 overflow-hidden">
+            <div className="rounded-xl border border-emerald-200 overflow-hidden overflow-x-auto">
               <div className="px-4 py-2.5 bg-emerald-50 border-b border-emerald-100">
                 <h3 className="text-sm font-semibold text-slate-800">
                   Summary &amp; Calculation
@@ -946,7 +946,7 @@ export default function AssignPage() {
             </div>
 
             {/* Final Remark */}
-            <div className="rounded-xl border border-amber-200 overflow-hidden">
+            <div className="rounded-xl border border-amber-200 overflow-hidden overflow-x-auto">
               <div className="px-4 py-2.5 bg-amber-50 border-b border-amber-100">
                 <h3 className="text-sm font-semibold text-slate-800">Final Remark</h3>
               </div>

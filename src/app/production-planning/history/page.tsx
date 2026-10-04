@@ -71,7 +71,7 @@ export default function PlanningHistoryPage() {
         </button>
       </div>
 
-      <div className="bg-white rounded-xl border overflow-hidden">
+      <div className="bg-white rounded-xl border overflow-hidden overflow-x-auto">
         <div className="overflow-x-auto">
           <table className="w-full text-sm">
             <thead className="bg-slate-800 text-white">

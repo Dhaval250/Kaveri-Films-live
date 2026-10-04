@@ -219,3 +219,50 @@ html.dark textarea {
     font-size: 12px !important;
   }
 }
+
+/* ========== Responsive helpers ========== */
+.table-wrap {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Tables: readable on mobile */
+@media (max-width: 767px) {
+  table {
+    font-size: 0.8125rem;
+  }
+  th, td {
+    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
+    white-space: nowrap;
+  }
+  input, select, textarea, button {
+    font-size: 16px !important; /* prevent iOS zoom */
+  }
+}
+
+/* Filter / form grids stack on small screens */
+.filter-grid {
+  display: grid;
+  gap: 0.75rem;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 640px) {
+  .filter-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (min-width: 1024px) {
+  .filter-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+/* Safe area for notched phones */
+@supports (padding: max(0px)) {
+  body {
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+  }
+}

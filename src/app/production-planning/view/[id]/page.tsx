@@ -227,7 +227,7 @@ export default function ViewPlanPage() {
       </div>
 
       {/* 1. Planning Details */}
-      <div className="bg-white rounded-xl border border-slate-200 overflow-hidden shadow-sm">
+      <div className="bg-white rounded-xl border border-slate-200 overflow-hidden shadow-sm overflow-x-auto">
         <div className="flex items-center justify-between px-5 py-3 border-b border-slate-100 bg-slate-50/80">
           <h2 className="text-sm font-semibold text-blue-700">
             Planning Details
@@ -282,7 +282,7 @@ export default function ViewPlanPage() {
       </div>
 
       {/* 2. Client / Party Allocation — same style as assignment page */}
-      <div className="bg-white rounded-xl border border-slate-200 overflow-hidden shadow-sm">
+      <div className="bg-white rounded-xl border border-slate-200 overflow-hidden shadow-sm overflow-x-auto">
         <div className="px-5 py-3 border-b border-slate-100 bg-slate-50/80">
           <h2 className="text-sm font-semibold text-blue-700">
             Client / Party Allocation
@@ -417,7 +417,7 @@ export default function ViewPlanPage() {
       </div>
 
       {/* 3. Process Scrapping summary */}
-      <div className="bg-white rounded-xl border border-slate-200 overflow-hidden shadow-sm">
+      <div className="bg-white rounded-xl border border-slate-200 overflow-hidden shadow-sm overflow-x-auto">
         <div className="px-5 py-3 border-b border-slate-100 bg-slate-50/80">
           <h2 className="text-sm font-semibold text-blue-700">
             Process Scrapping &amp; Live Calculations

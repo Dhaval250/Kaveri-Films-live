@@ -52,7 +52,7 @@ export default function ProductionHistoryPage() {
 
   return (
     <div className="space-y-6">
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
         <div>
           <h1 className="text-xl font-semibold text-slate-900">Production History</h1>
         </div>
@@ -64,7 +64,7 @@ export default function ProductionHistoryPage() {
         </button>
       </div>
 
-      <div className="bg-white rounded-xl border overflow-hidden">
+      <div className="bg-white rounded-xl border overflow-hidden overflow-x-auto">
         <table className="w-full text-sm">
           <thead className="bg-slate-800 text-white">
             <tr>

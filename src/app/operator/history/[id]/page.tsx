@@ -120,7 +120,7 @@ export default function WorkHistoryDetailPage() {
       </div>
 
       {/* Production Summary card */}
-      <div className="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden">
+      <div className="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden overflow-x-auto">
         <div className="px-5 py-3 border-b border-slate-100 flex items-center justify-between flex-wrap gap-2">
           <div>
             <h2 className="text-lg font-semibold text-slate-800">Production Summary</h2>
@@ -137,7 +137,7 @@ export default function WorkHistoryDetailPage() {
         </div>
 
         {/* Machine & Shift */}
-        <div className="m-4 rounded-lg border border-slate-200 overflow-hidden">
+        <div className="m-4 rounded-lg border border-slate-200 overflow-hidden overflow-x-auto">
           <div className="bg-sky-50 px-4 py-2 text-sm font-medium text-slate-700">
             Machine &amp; Shift Details
           </div>
@@ -172,7 +172,7 @@ export default function WorkHistoryDetailPage() {
         </div>
 
         {/* Party-wise */}
-        <div className="mx-4 mb-4 rounded-lg border border-slate-200 overflow-hidden">
+        <div className="mx-4 mb-4 rounded-lg border border-slate-200 overflow-hidden overflow-x-auto">
           <div className="bg-sky-50 px-4 py-2 text-sm font-medium text-slate-700">
             Party-wise Production Details
           </div>
@@ -260,7 +260,7 @@ export default function WorkHistoryDetailPage() {
         </div>
 
         {/* Summary & Calculation */}
-        <div className="mx-4 mb-4 rounded-lg border border-emerald-200 bg-emerald-50/40 overflow-hidden">
+        <div className="mx-4 mb-4 rounded-lg border border-emerald-200 bg-emerald-50/40 overflow-hidden overflow-x-auto">
           <div className="bg-emerald-50 px-4 py-2 text-sm font-medium text-emerald-800">
             Summary &amp; Calculation
           </div>

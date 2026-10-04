@@ -183,7 +183,7 @@ export default function ProductsPage() {
       </div>
 
       {/* Card — outer border only (matches screenshot) */}
-      <div className="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden">
+      <div className="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden overflow-x-auto">
         <div className="px-5 py-3.5 border-b border-slate-100">
           <span className="text-sm font-semibold text-slate-800">
             Product List ({filteredList.length})
@@ -334,7 +334,7 @@ export default function ProductsPage() {
       {showModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 p-4">
           <div
-            className="bg-white rounded-xl shadow-2xl w-full max-w-md overflow-hidden"
+            className="bg-white rounded-xl shadow-2xl w-full max-w-md overflow-hidden overflow-x-auto"
             onClick={(e) => e.stopPropagation()}
             onMouseDown={(e) => e.stopPropagation()}
           >

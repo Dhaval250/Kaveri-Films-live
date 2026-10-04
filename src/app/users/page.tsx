@@ -235,7 +235,7 @@ export default function UsersPage() {
         <p className="text-sm text-red-600 bg-red-50 border border-red-100 rounded-lg px-3 py-2">{error}</p>
       )}
 
-      <div className="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden">
+      <div className="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden overflow-x-auto">
         <div className="px-5 py-3.5 border-b border-slate-100">
           <span className="text-sm font-semibold text-slate-800">
             User List ({filtered.length})
@@ -391,7 +391,7 @@ export default function UsersPage() {
       {showView && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 p-4">
           <div
-            className="bg-white rounded-xl shadow-2xl w-full max-w-md overflow-hidden"
+            className="bg-white rounded-xl shadow-2xl w-full max-w-md overflow-hidden overflow-x-auto"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="flex items-center justify-between px-5 py-3.5 border-b border-slate-100">
@@ -443,7 +443,7 @@ export default function UsersPage() {
       {showCreate && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 p-4">
           <div
-            className="bg-white rounded-xl shadow-2xl w-full max-w-lg overflow-hidden"
+            className="bg-white rounded-xl shadow-2xl w-full max-w-lg overflow-hidden overflow-x-auto"
             onClick={(e) => e.stopPropagation()}
             onMouseDown={(e) => e.stopPropagation()}
           >
@@ -543,7 +543,7 @@ export default function UsersPage() {
       {showEdit && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 p-4">
           <div
-            className="bg-white rounded-xl shadow-2xl w-full max-w-lg overflow-hidden"
+            className="bg-white rounded-xl shadow-2xl w-full max-w-lg overflow-hidden overflow-x-auto"
             onClick={(e) => e.stopPropagation()}
             onMouseDown={(e) => e.stopPropagation()}
           >

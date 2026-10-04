@@ -198,7 +198,7 @@ export default function RolesPage() {
       )}
 
       {/* Role cards / table */}
-      <div className="bg-white rounded-xl border border-slate-200 overflow-hidden shadow-sm">
+      <div className="bg-white rounded-xl border border-slate-200 overflow-hidden shadow-sm overflow-x-auto">
         <div className="px-5 py-3 border-b bg-slate-50 flex items-center justify-between">
           <span className="font-medium text-slate-800">All Roles</span>
           <span className="text-xs text-slate-500">{list.length} roles</span>
@@ -324,7 +324,7 @@ export default function RolesPage() {
       {modal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
           <div className="absolute inset-0 bg-black/40" onClick={closeModal} />
-          <div className="relative bg-white rounded-2xl shadow-2xl w-full max-w-2xl max-h-[90vh] overflow-hidden flex flex-col">
+          <div className="relative bg-white rounded-2xl shadow-2xl w-full max-w-2xl max-h-[90vh] overflow-hidden flex flex-col overflow-x-auto">
             <div className="px-6 py-4 border-b flex items-center justify-between bg-slate-50">
               <div className="flex items-center gap-2">
                 <Shield className="w-5 h-5 text-blue-600" />

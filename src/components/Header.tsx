@@ -13,6 +13,7 @@ import {
   Loader2,
   ClipboardList,
   X,
+  Menu,
 } from "lucide-react";
 
 type UserInfo = {
@@ -46,7 +47,7 @@ function applyTheme(dark: boolean) {
   }
 }
 
-export default function Header() {
+export default function Header({ onMenuClick }: { onMenuClick?: () => void }) {
   const router = useRouter();
   const [user, setUser] = useState<UserInfo | null>(null);
   const [open, setOpen] = useState(false);
@@ -153,7 +154,24 @@ export default function Header() {
     : "AD";
 
   return (
-    <header className="h-14 shrink-0 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-700 flex items-center justify-end px-6 gap-2 sticky top-0 z-30 print:hidden">
+    <header className="h-14 shrink-0 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-700 flex items-center justify-between px-3 sm:px-4 md:px-6 gap-2 sticky top-0 z-30 print:hidden">
+      {/* Left: hamburger (mobile) + brand */}
+      <div className="flex items-center gap-2 min-w-0">
+        <button
+          type="button"
+          onClick={onMenuClick}
+          className="lg:hidden p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-300"
+          aria-label="Open menu"
+        >
+          <Menu className="w-6 h-6" />
+        </button>
+        <div className="lg:hidden font-semibold text-sm text-slate-800 dark:text-slate-100 truncate">
+          Kaveri Metallising
+        </div>
+      </div>
+
+      {/* Right actions */}
+      <div className="flex items-center gap-1 sm:gap-2 shrink-0">
       {/* Theme toggle */}
       <button
         type="button"
@@ -182,7 +200,7 @@ export default function Header() {
         </button>
 
         {bellOpen && (
-          <div className="absolute right-0 mt-2 w-80 max-h-[70vh] overflow-hidden bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-700 shadow-lg z-50 flex flex-col">
+          <div className="absolute right-0 mt-2 w-80 max-h-[70vh] overflow-hidden bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-700 shadow-lg z-50 flex flex-col overflow-x-auto">
             <div className="px-4 py-3 border-b border-slate-100 dark:border-slate-700 flex items-center justify-between">
               <p className="text-sm font-semibold text-slate-800 dark:text-slate-100">
                 Recent plans
@@ -300,6 +318,7 @@ export default function Header() {
             </button>
           </div>
         )}
+      </div>
       </div>
     </header>
   );

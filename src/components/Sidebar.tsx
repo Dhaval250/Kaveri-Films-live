@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname, useSearchParams } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { useEffect, useState, Suspense } from "react";
 import {
   LayoutDashboard,
@@ -15,6 +15,7 @@ import {
   Users,
   Shield,
   Package,
+  X,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -96,16 +97,18 @@ const ALL_NAV: NavItem[] = [
 ];
 
 function isChildActive(pathname: string, childHref: string): boolean {
-  // Exact match for paths without query
-  if (!childHref.includes("?")) {
-    return pathname === childHref;
-  }
-  // Should not happen if we use separate paths
+  if (!childHref.includes("?")) return pathname === childHref;
   const [path] = childHref.split("?");
   return pathname === path;
 }
 
-function SidebarInner() {
+function SidebarInner({
+  mobileOpen,
+  onClose,
+}: {
+  mobileOpen?: boolean;
+  onClose?: () => void;
+}) {
   const pathname = usePathname();
   const [openMenus, setOpenMenus] = useState<Record<string, boolean>>({});
   const [role, setRole] = useState<string>("Operator");
@@ -119,11 +122,14 @@ function SidebarInner() {
       .catch(() => {});
   }, []);
 
-  // Auto-open parent menu when a child is active
   useEffect(() => {
     const next: Record<string, boolean> = {};
     ALL_NAV.forEach((item) => {
-      if (item.children?.some((c) => pathname === c.href || pathname.startsWith(c.href + "/"))) {
+      if (
+        item.children?.some(
+          (c) => pathname === c.href || pathname.startsWith(c.href + "/")
+        )
+      ) {
         next[item.name] = true;
       }
     });
@@ -140,38 +146,62 @@ function SidebarInner() {
   };
 
   const items = ALL_NAV.filter(canSee);
+  const linkClick = () => onClose?.();
 
   return (
-    <aside className="fixed left-0 top-0 z-40 w-64 h-screen bg-slate-900 text-white flex flex-col print:hidden">
+    <aside
+      className={cn(
+        "fixed left-0 top-0 z-50 w-64 max-w-[85vw] h-screen bg-slate-900 text-white flex flex-col print:hidden",
+        "transition-transform duration-300 ease-in-out",
+        mobileOpen ? "translate-x-0" : "-translate-x-full",
+        "lg:translate-x-0"
+      )}
+    >
       <div className="p-4 border-b border-slate-700 flex items-center gap-2">
-        <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-yellow-400 to-orange-500 flex items-center justify-center font-bold text-slate-900">
+        <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-yellow-400 to-orange-500 flex items-center justify-center font-bold text-slate-900 shrink-0">
           K
         </div>
-        <div>
+        <div className="min-w-0 flex-1">
           <div className="font-bold text-sm tracking-wide">KAVERI</div>
           <div className="text-[10px] text-slate-400">METALLISING</div>
         </div>
+        <button
+          type="button"
+          onClick={onClose}
+          className="lg:hidden p-2 rounded-lg text-slate-400 hover:bg-slate-800 hover:text-white"
+          aria-label="Close menu"
+        >
+          <X className="w-5 h-5" />
+        </button>
       </div>
 
-      <nav className="flex-1 overflow-y-auto p-3 space-y-1">
+      <nav className="flex-1 overflow-y-auto p-3 space-y-1 overscroll-contain">
         {items.map((item) => {
           if (item.children) {
             const isOpen =
               openMenus[item.name] ??
-              item.children.some((c) => pathname === c.href || pathname.startsWith(c.href + "/"));
+              item.children.some(
+                (c) => pathname === c.href || pathname.startsWith(c.href + "/")
+              );
             return (
               <div key={item.name}>
                 <button
+                  type="button"
                   onClick={() => toggle(item.name)}
                   className={cn(
-                    "w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors",
-                    isOpen ? "bg-slate-800 text-white" : "text-slate-300 hover:bg-slate-800"
+                    "w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors min-h-[44px]",
+                    isOpen
+                      ? "bg-slate-800 text-white"
+                      : "text-slate-300 hover:bg-slate-800"
                   )}
                 >
-                  <item.icon className="w-5 h-5" />
-                  <span className="flex-1 text-left">{item.name}</span>
+                  <item.icon className="w-5 h-5 shrink-0" />
+                  <span className="flex-1 text-left truncate">{item.name}</span>
                   <ChevronDown
-                    className={cn("w-4 h-4 transition-transform", isOpen && "rotate-180")}
+                    className={cn(
+                      "w-4 h-4 shrink-0 transition-transform",
+                      isOpen && "rotate-180"
+                    )}
                   />
                 </button>
                 {isOpen && (
@@ -182,8 +212,9 @@ function SidebarInner() {
                         <Link
                           key={child.href}
                           href={child.href}
+                          onClick={linkClick}
                           className={cn(
-                            "block px-3 py-2 rounded-lg text-sm transition-colors",
+                            "block px-3 py-2.5 rounded-lg text-sm transition-colors min-h-[40px]",
                             active
                               ? "bg-blue-600 text-white font-medium"
                               : "text-slate-400 hover:bg-slate-800 hover:text-white"
@@ -201,33 +232,45 @@ function SidebarInner() {
 
           const active =
             pathname === item.href ||
-            (item.href !== undefined && item.href !== "/" && pathname.startsWith(item.href + "/"));
+            (item.href !== undefined &&
+              item.href !== "/" &&
+              pathname.startsWith(item.href + "/"));
           return (
             <Link
               key={item.name}
               href={item.href!}
+              onClick={linkClick}
               className={cn(
-                "flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors",
-                active ? "bg-blue-600 text-white" : "text-slate-300 hover:bg-slate-800 hover:text-white"
+                "flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors min-h-[44px]",
+                active
+                  ? "bg-blue-600 text-white"
+                  : "text-slate-300 hover:bg-slate-800 hover:text-white"
               )}
             >
-              <item.icon className="w-5 h-5" />
-              <span>{item.name}</span>
+              <item.icon className="w-5 h-5 shrink-0" />
+              <span className="truncate">{item.name}</span>
             </Link>
           );
         })}
       </nav>
-
     </aside>
   );
 }
 
-export default function Sidebar() {
+export default function Sidebar({
+  mobileOpen,
+  onClose,
+}: {
+  mobileOpen?: boolean;
+  onClose?: () => void;
+}) {
   return (
-    <Suspense fallback={
-      <aside className="fixed left-0 top-0 z-40 w-64 h-screen bg-slate-900" />
-    }>
-      <SidebarInner />
+    <Suspense
+      fallback={
+        <aside className="fixed left-0 top-0 z-50 w-64 h-screen bg-slate-900 hidden lg:block" />
+      }
+    >
+      <SidebarInner mobileOpen={mobileOpen} onClose={onClose} />
     </Suspense>
   );
 }
