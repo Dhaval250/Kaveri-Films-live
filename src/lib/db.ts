@@ -11,7 +11,7 @@ const poolOptions = {
   enableKeepAlive: true,
   keepAliveInitialDelay: 10000,
   // Faster round-trips
-  namedPlaceholders: true,
+  namedPlaceholders: false,
   dateStrings: true,
   multipleStatements: false,
   // Avoid slow DNS / reconnects
